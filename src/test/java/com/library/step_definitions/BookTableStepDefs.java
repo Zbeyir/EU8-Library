@@ -17,6 +17,8 @@ public class BookTableStepDefs {
     public void book_information_must_match_the_database_for(String bookName) {
         BrowserUtils.waitFor(3);
        //get information from UI
+        //bu assagi da ki ler le alakali 7.gün foto 'da detayli aciklama var
+        //YANI BIRI CALISMAZ ISE CALISACAK DIGER METHODLAR..
         String actualName = booksPage.bookName.getAttribute("value");
         String actualAuthor = booksPage.author.getAttribute("value");
         String actualISBN = booksPage.isbn.getAttribute("value");
@@ -35,7 +37,7 @@ public class BookTableStepDefs {
 
         System.out.println(dbData.toString());
 
-        String expectedName = dbData.get("name").toString();
+        String expectedName = dbData.get("name").toString(); // burasi ve assagisi DB 'den gelen bilgiler
         String expectedISBN = dbData.get("isbn").toString();
         String expectedYear = dbData.get("year").toString();
         String expectedAuthor = dbData.get("author").toString();
@@ -51,6 +53,7 @@ public class BookTableStepDefs {
         //real life you dont save those info into variables
         Assert.assertEquals(booksPage.bookName.getAttribute("value"),dbData.get("name").toString());
 
+        //yani normal de is hayatinda ins bu yukaridaki gibi yazacagiz
 
 
     }
